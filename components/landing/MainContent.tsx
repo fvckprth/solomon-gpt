@@ -42,18 +42,23 @@ const MainContent = () => {
 
     return (
         <div className='flex flex-col'>
-            <div className="flex justify-between p-4 m-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 backdrop-blur-md">
-                <div className="flex flex-col space-y-3">
-                    <div className="text-gray-200 text-2xl">
+            <div className="flex justify-between p-3 m-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 backdrop-blur-md">
+                <div className="flex flex-col">
+                    <div className="text-gray-200 text-2xl leading-none tracking-tight mb-2">
                         Solomon
                     </div>
-                    <div className="text-gray-200 text-opacity-50 text-[8px]">
-                        A GPT DESIGNED FOR <br/>
-                        THE EAST PARK TEAM
+                    <div className='flex flex-row items-end opacity-50 space-x-1'>
+                        <div>
+                            <Image src="/images/icon.svg" alt="arrow icon" className="fill-inherit" quality={100} width={12} height={12} />
+                        </div>
+                        <div className="text-gray-200 text-[8px] leading-none tracking-tight">
+                            A GPT DESIGNED FOR <br/>
+                            THE EAST PARK TEAM
+                        </div>
                     </div>
                 </div>
                 <div>
-                    <Image src="/solomon-logo.svg" alt="Solomon Logo" quality={100} width={88} height={88} />
+                    <Image src="/images/solomon-logo.svg" alt="Solomon Logo" quality={100} width={48} height={48} />
                 </div>
             </div>
             <div className="m-4 text-gray-200 text-5xl">
@@ -78,8 +83,8 @@ const MainContent = () => {
                 </div>
             </div>
             <div className='m-4 flex flex-row space-x-3'>
-                <Button variant='secondary' size='lg' className='w-full backdrop-blur-md'>REQUEST ACCESS</Button>
-                <Button variant='default' size='lg' className='w-full'>LOG-IN</Button>
+                <Button variant='secondary' size='lg' className='w-full backdrop-blur-md'>Request Access</Button>
+                <Button variant='default' size='lg' className='w-full'>Log-in</Button>
             </div>
             <div className='m-4 text-custom-white text-xs opacity-50'>
                 <div className='flex flex-row space-x-6'>
