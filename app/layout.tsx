@@ -1,8 +1,14 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
+import '@/styles/globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+const allianceNo2 = localFont({ 
+  src: '../public/fonts/AllianceNo.2-Regular.otf',
+  weight: '400',
+  variable: '--font-allianceNo2',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +22,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${allianceNo2.className}`}>{children}</body>
     </html>
   )
 }
+
