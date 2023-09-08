@@ -4,7 +4,7 @@ import MuxPlayer from '@mux/mux-player-react';
 
 const BackgroundVideo = () => {
     return (
-        <div className="video-container">
+        <div>
             <MuxPlayer
                 streamType="on-demand"
                 playbackId="syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c"
@@ -15,7 +15,7 @@ const BackgroundVideo = () => {
                 loop
                 muted
             />
-            <div className="absolute top-0 left-0 z-[-1] w-full h-full bg-pink-500 bg-opacity-25"></div>
+            <div className="absolute top-0 left-0 z-[-1] w-full h-full bg-[#FF2264] bg-opacity-25"></div>
         </div>
     );
 }

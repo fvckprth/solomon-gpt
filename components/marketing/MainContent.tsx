@@ -1,0 +1,130 @@
+'use client'
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import clsx from 'clsx';
+import { Button } from '../ui/button';
+
+const contentData = [
+    {
+        preview: 'ANALYZE',
+        label: 'CHAT WITH INTERNAL DOCS',
+        paragraph: 
+            'Providing real-time insights and updates\n on East Park\'s assets, ensuring our investors,\n advisors, and friends, are always in the loop.'
+    },
+    {
+        preview: 'UNDERSTAND',
+        label: 'WHY EAST PARK?',
+        paragraph: 'Grasp the essence of our products and services. SolomonGPT sheds light on the market insights\n and the unique value we bring to the table.'
+    },
+    {
+        preview: 'KNOW',
+        label: 'PROJECT FEEDBACK AND ANALYTICS',
+        paragraph: 'Engage with SolomonGPT to understand the\n core principles driving East Park. Discover the\n reasons behind our every move and decision.'
+    }
+];
+
+const MainContent = () => {
+    const [activeContent, setActiveContent] = useState(contentData[0]);
+
+    interface ContentItem {
+        preview: string;
+        label: string;
+        paragraph: string;
+    }
+
+    const handleClick = (contentItem: ContentItem) => {
+        setActiveContent(contentItem);
+    }
+
+    const boxClasses = 'border border-white p-2 mr-2 cursor-pointer';
+    const activeBoxClasses = 'bg-white';
+
+    return (
+        <div className='m-4 md:m-0 md:grid grid-cols-1 md:grid-cols-6 md:grid-rows-[1fr,1fr,1fr,1fr,1fr,auto] gap-0 h-screen'>
+            <div className="flex md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-md">
+                <div className="flex flex-col">
+                    <div className="text-gray-200 text-2xl md:text-4xl leading-none tracking-tight mb-2">
+                        Solomon
+                    </div>
+                    <div className='flex flex-row items-end opacity-50 space-x-1'>
+                        <div>
+                            <Image 
+                                src="/images/icon.svg" 
+                                alt="arrow icon" 
+                                className="fill-inherit" 
+                                quality={100} 
+                                width={12}
+                                height={12} 
+                                layout="responsive"
+                                sizes="(max-width: 640px) 32px, 32px"
+                            />
+                        </div>
+                        <div className="text-gray-200 text-[8px] md:text-xs leading-tight tracking-tight">
+                            A GPT DESIGNED FOR <br/>
+                            THE EAST PARK TEAM
+                        </div>
+                    </div>
+                </div>
+                <div className='self-end'>
+                    <Image 
+                        src="/images/solomon-logo.png" 
+                        alt="Solomon Logo" 
+                        quality={100} 
+                        width={56} 
+                        height={56} 
+                        layout="responsive"
+                        sizes="(max-width: 640px) 56px, 448px"
+                        />
+                </div>
+            </div>
+            <div className="md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl self-end">
+                SolomonGPT, <br/>
+                Your Partner <br/>
+                in Exploration
+            </div>
+            <div className='md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start space-y-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-md'>
+                <div className='flex flex-row text-custom-white'>
+                    {contentData.map(item => (
+                        <div
+                            key={item.preview}
+                            className={clsx(boxClasses, { [activeBoxClasses]: activeContent.label === item.label })}
+                            onClick={() => handleClick(item)}
+                        />
+                    ))}
+                    <div className='text-[8px] md:text-xs text-custom-white'>{activeContent.preview}</div>
+                </div>
+                <div className='inline-block space-y-4'>
+                    <div className='text-xs md:text-base text-custom-white inline-block'>
+                        {activeContent.paragraph.split('\n').map((line, i) => (
+                            <span key={i}>
+                                {line}
+                                <br/>
+                            </span>
+                        ))}
+                    </div>
+                    <div className='text-[8px] md:text-xs text-custom-white px-2 py-1 border border-white opacity-25 inline-block'>{activeContent.label}</div>
+                </div>
+            </div>
+            <div className='md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
+                <Button variant='secondary' size='lg' className='md:text-base w-full backdrop-blur-md'>Request Access</Button>
+                <Button variant='default' size='lg' className='md:text-base w-full'>Log-in</Button>
+            </div>
+            <div className='md:flex md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-custom-white text-xs md:text-sm opacity-50 space-y-4 md:space-y-0 self-end'>
+                <div className='md:flex md:space-x-6'>
+                    <div>
+                        12 ACCOUNTS
+                    </div>
+                    <div>
+                        9,123 VIEWS
+                    </div>
+                </div>
+                <div className='md:ml-12'>
+                    ©2023 EAST PARK HOLDINGS GROUP
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default MainContent;

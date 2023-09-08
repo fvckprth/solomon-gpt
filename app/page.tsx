@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import BackgroundVideo from '@/components/landing/BackgroundVideo'
-import MainContent from '@/components/landing/MainContent'
+import BackgroundVideo from '@/components/marketing/BackgroundVideo'
+import MainContent from '@/components/marketing/MainContent'
 
 export default function Home() {
   return (

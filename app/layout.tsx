@@ -11,16 +11,16 @@ const allianceNo2 = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Your Application Title',
-  description: 'A brief description of your application',
+  title: 'Solomon | Your Partner in Exploration',
+  description: 'Dive deep into East Park Holdings\' journey, from our founders\' stories to market insights.',
   themeColor: '#FF2264',
-  keywords: ['keyword1', 'keyword2', 'keyword3'],
-  authors: [{ name: 'Author Name', url: 'https://authorwebsite.com' }],
+  keywords: ['solomonGPT', 'East Park Holdings\' Group', 'AI Chatbot', 'New York'],
+  authors: [{ name: 'Parth Patel', url: 'https://parth.ski' }],
   openGraph: {
     title: 'Your Application Title',
     description: 'A brief description of your application',
-    url: 'https://yourwebsite.com',
-    siteName: 'Your Site Name',
+    url: 'https://withsolomon.com',
+    siteName: 'Solomon',
     images: [
       {
         url: 'https://yourwebsite.com/og-image.jpg',
