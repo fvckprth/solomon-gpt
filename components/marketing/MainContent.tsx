@@ -41,8 +41,8 @@ const MainContent = () => {
     const activeBoxClasses = 'bg-white';
 
     return (
-        <div className='flex flex-col justify-between h-full m-4 md:m-0 md:grid md:grid-cols-6 md:grid-rows-auto md:grid-rows-[1fr,1fr,1fr,1fr,1fr,auto] md:gap-0 md:h-screen'> 
-            <div className="flex md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-md">
+    <div className='flex flex-col h-screen m-4 md:m-0 md:grid md:grid-cols-6 md:grid-rows-auto md:grid-rows-[1fr,1fr,1fr,1fr,1fr,auto] md:gap-0 md:h-screen'> 
+            <div className="flex md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 mb-12 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-md">
                 <div className="flex flex-col">
                     <div className="text-gray-200 text-2xl md:text-4xl leading-none tracking-tight mb-2">
                         Solomon
@@ -78,12 +78,12 @@ const MainContent = () => {
                         />
                 </div>
             </div>
-            <div className="md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
+            <div className="mb-48 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
                 SolomonGPT, <br/>
                 Your Partner <br/>
                 in Exploration
             </div>
-            <div className='md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start space-y-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-md'>
+            <div className='mb-4 md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start space-y-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-md'>
                 <div className='flex flex-row text-custom-white'>
                     {contentData.map(item => (
                         <div
@@ -106,11 +106,11 @@ const MainContent = () => {
                     <div className='text-[8px] md:text-xs text-custom-white px-2 py-1 border border-white opacity-25 inline-block'>{activeContent.label}</div>
                 </div>
             </div>
-            <div className='md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
+            <div className='mb-8 md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
                 <Button variant='secondary' size='lg' className='md:text-base w-full backdrop-blur-md'>Request Access</Button>
                 <Button variant='default' size='lg' className='md:text-base w-full'>Log-in</Button>
             </div>
-            <div className='flex flex-col md:flex-row md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-custom-white text-xs md:text-sm opacity-50 space-y-4 md:space-y-0 md:self-end'>
+            <div className='flex flex-col md:flex-row md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-custom-white text-xs md:text-sm opacity-50 space-y-1 md:space-y-0 md:self-end'>
                 <div className='flex md:space-x-6'>
                     <div>
                         12 ACCOUNTS

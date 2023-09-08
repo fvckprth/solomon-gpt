@@ -4,7 +4,7 @@ import MainContent from '@/components/marketing/MainContent'
 
 export default function Home() {
   return (
-    <div>
+    <div className='h-screen'>
       <MainContent />
       <BackgroundVideo />
     </div>
