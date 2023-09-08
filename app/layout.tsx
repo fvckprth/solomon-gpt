@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   keywords: ['solomonGPT', 'East Park Holdings\' Group', 'AI Chatbot', 'New York'],
   authors: [{ name: 'Parth Patel', url: 'https://parth.ski' }],
   openGraph: {
-    title: 'Access Solomon',
-    description: 'A brief description of your application',
+    title: 'Solomon | Your Partner in Exploration',
+    description: 'Dive deep into East Park Holdings\' journey, from our founders\' stories to market insights.',
     url: 'https://withsolomon.com',
     siteName: 'Solomon',
     images: [
       {
-        url: 'https://image.mux.com/syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c/animated.gif?fps=15&end=5',
+        url: 'https://image.mux.com/syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c/animated.gif?fps=30',
         width: 800,
         height: 600,
         alt: 'Mushroom Trip',
