@@ -78,7 +78,7 @@ const MainContent = () => {
                         />
                 </div>
             </div>
-            <div className="mb-48 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
+            <div className="mb-24 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
                 SolomonGPT, <br/>
                 Your Partner <br/>
                 in Exploration
