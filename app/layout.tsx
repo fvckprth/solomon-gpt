@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 import '@/styles/globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
 const allianceNo2 = localFont({ 
   src: '../public/fonts/AllianceNo.2-Regular.otf',
   weight: '400',
@@ -17,16 +15,16 @@ export const metadata: Metadata = {
   keywords: ['solomonGPT', 'East Park Holdings\' Group', 'AI Chatbot', 'New York'],
   authors: [{ name: 'Parth Patel', url: 'https://parth.ski' }],
   openGraph: {
-    title: 'Your Application Title',
+    title: 'Access Solomon',
     description: 'A brief description of your application',
     url: 'https://withsolomon.com',
     siteName: 'Solomon',
     images: [
       {
-        url: 'https://yourwebsite.com/og-image.jpg',
+        url: 'https://image.mux.com/syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c/animated.gif?fps=15&end=5',
         width: 800,
         height: 600,
-        alt: 'Description of the image for visually impaired users',
+        alt: 'Mushroom Trip',
       },
     ],
     locale: 'en_US',
@@ -39,7 +37,7 @@ export const metadata: Metadata = {
     creatorId: 'Your Twitter ID',
     title: 'Your Application Title',
     description: 'A brief description of your application',
-    images: ['https://yourwebsite.com/twitter-image.jpg'],
+    images: ['https://image.mux.com/syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c/animated.gif?fps=15&end=5'],
   },
 }
 

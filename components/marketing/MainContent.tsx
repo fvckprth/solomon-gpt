@@ -42,7 +42,7 @@ const MainContent = () => {
 
     return (
     <div className='flex flex-col h-screen m-4 md:m-0 md:grid md:grid-cols-6 md:grid-rows-auto md:grid-rows-[1fr,1fr,1fr,1fr,1fr,auto] md:gap-0 md:h-screen'> 
-            <div className="flex md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 mb-12 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-md">
+            <div className="flex flex-row justify-between md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 mb-12 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-md">
                 <div className="flex flex-col">
                     <div className="text-gray-200 text-2xl md:text-4xl leading-none tracking-tight mb-2">
                         Solomon
