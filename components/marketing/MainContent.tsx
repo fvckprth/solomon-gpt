@@ -37,12 +37,12 @@ const MainContent = () => {
         setActiveContent(contentItem);
     }
 
-    const boxClasses = 'border border-white p-2 mr-1 mr-2 cursor-pointer';
+    const boxClasses = 'border border-white mr-1 md:mr-2 cursor-pointer w-2 h-2 md:w-4 md:h-4';
     const activeBoxClasses = 'bg-white';
 
     return (
     <div className='flex flex-col h-screen m-4 md:m-0 md:grid md:grid-cols-6 md:grid-rows-auto md:grid-rows-[1fr,1fr,1fr,1fr,1fr,auto] md:gap-0 md:h-screen'> 
-            <div className="flex flex-row justify-between md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 mb-12 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md">
+            <div className="flex flex-row justify-between md:flex-col md:col-start-1 md:col-span-2 md:row-start-1 md:row-span-4 p-3 md:p-8 mb-8 md:m-0 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-t-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md">
                 <div className="flex flex-col">
                     <div className="text-gray-200 text-2xl md:text-4xl leading-none tracking-tight mb-2">
                         Solomon
@@ -78,13 +78,13 @@ const MainContent = () => {
                         />
                 </div>
             </div>
-            <div className="mb-12 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
+            <div className="mb-16 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
                 SolomonGPT, <br/>
                 Your Partner <br/>
                 in Exploration
             </div>
-            <div className='mb-4 md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start space-y-4 bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md'>
-                <div className='flex flex-row text-custom-white'>
+            <div className='mb-4 md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start bg-stone-900 bg-opacity-25 border border-gray-200 border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md'>
+                <div className='flex flex-row items-center text-custom-white'>
                     {contentData.map(item => (
                         <div
                             key={item.preview}
@@ -92,9 +92,9 @@ const MainContent = () => {
                             onClick={() => handleClick(item)}
                         />
                     ))}
-                    <div className='text-[8px] md:text-xs text-custom-white'>{activeContent.preview}</div>
+                    <div className='ml-1 text-[8px] md:text-xs text-custom-white'>{activeContent.preview}</div>
                 </div>
-                <div className='inline-block space-y-2 md:space-y-4'>
+                <div className='mt-2 inline-block space-y-2 md:space-y-4'>
                     <div className='text-xs md:text-base text-custom-white inline-block'>
                         {activeContent.paragraph.split('\n').map((line, i) => (
                             <span key={i}>
