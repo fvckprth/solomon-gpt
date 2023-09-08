@@ -78,7 +78,7 @@ const MainContent = () => {
                         />
                 </div>
             </div>
-            <div className="mb-24 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
+            <div className="mb-16 md:mb-4 md:col-start-3 md:col-span-3 md:row-start-3 md:row-span-3 md:justify-end md:ml-20 text-gray-200 text-5xl md:text-8xl md:self-end">
                 SolomonGPT, <br/>
                 Your Partner <br/>
                 in Exploration
@@ -106,7 +106,7 @@ const MainContent = () => {
                     <div className='text-[8px] md:text-xs text-custom-white px-2 py-1 border border-white opacity-25 inline-block'>{activeContent.label}</div>
                 </div>
             </div>
-            <div className='mb-8 md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
+            <div className='mb-6 md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
                 <Button variant='secondary' size='lg' className='md:text-base w-full backdrop-blur-md'>Request Access</Button>
                 <Button variant='default' size='lg' className='md:text-base w-full'>Log-in</Button>
             </div>
