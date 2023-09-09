@@ -12,7 +12,8 @@ const BackgroundVideo = () => {
                     playbackId="syVZUPM8hwRPv008dJvaOg02Dxg00Z02oT4i4lbOb4usV5c"
                     metadata={{
                         video_title: "Mushroom Trip"
-                      }}                    playsInline
+                      }}                    
+                    playsInline
                     autoPlay="any"
                     style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
                     loop
