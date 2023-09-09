@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '@/styles/globals.css'
+import BackgroundVideo from '@/components/BackgroundVideo'
+
 
 const allianceNo2 = localFont({ 
   src: '../public/fonts/AllianceNo.2-Regular.otf',
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   keywords: ['solomonGPT', 'East Park Holdings\' Group', 'AI Chatbot', 'New York'],
   authors: [{ name: 'Parth Patel', url: 'https://parth.ski' }],
   openGraph: {
-    title: 'Solomon | Your Partner in Exploration',
+    title: 'Solomon',
     description: 'Dive deep into East Park Holdings\' journey, from our founders\' stories to market insights.',
     url: 'https://withsolomon.com',
     siteName: 'Solomon',
@@ -41,15 +43,17 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+type RootLayoutProps = {
+  children: React.ReactNode;
+};
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${allianceNo2.className}`}>{children}</body>
+      <body className={`${allianceNo2.className} overflow-hidden h-screen relative`}>
+        {children}
+        <BackgroundVideo />
+      </body>
     </html>
-  )
+  );
 }
-

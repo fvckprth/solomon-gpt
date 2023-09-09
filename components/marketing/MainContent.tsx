@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { Button } from '../ui/button';
+import Link from 'next/link';
 
 const contentData = [
     {
@@ -108,7 +109,9 @@ const MainContent = () => {
             </div>
             <div className='mb-6 md:p-8 md:col-start-5 md:col-span-2 md:row-start-1 md:m-0 flex flex-row space-x-3'>
                 <Button variant='secondary' size='lg' className='md:text-base w-full backdrop-blur-md'>Request Access</Button>
-                <Button variant='default' size='lg' className='md:text-base w-full'>Log-in</Button>
+                <Link href="/sign-in" passHref>
+                    <Button variant='default' size='lg' className='md:text-base w-full'>Log-in</Button>
+                </Link>
             </div>
             <div className='flex flex-col md:flex-row md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-custom-white text-xs md:text-sm opacity-50 space-y-1 md:space-y-0 md:self-end'>
                 <div className='flex space-x-6'>
