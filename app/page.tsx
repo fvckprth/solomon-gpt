@@ -9,7 +9,7 @@ import Footer from '@/components/marketing/Footer'
 export default function Home() {
   return (
     <div>
-      <div className='absolute top-0 left-0 h-screen'>
+      <div className='absolute top-0 left-0 h-full'>
         <div className="flex flex-col justify-between relative h-full p-4 overflow-auto">
           <Header />
           <Hero />
