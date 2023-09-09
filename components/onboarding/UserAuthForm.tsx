@@ -50,11 +50,24 @@ export function UserAuthForm() {
       <CardContent className="px-4">
         <form onSubmit={handleSubmit}>
           <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5 bg-stone-900 bg-opacity-25">
-              <Input id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <div className="flex flex-col space-y-1.5">
+              <Input 
+                id="email" 
+                className="text-custom-white bg-stone-900 bg-opacity-25 border-none focus-visible:text-custom-white focus:border-custom-white focus:outline-none focus:ring-none" 
+                placeholder="Email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <div className="flex flex-col space-y-1.5 bg-stone-900 bg-opacity-25">
-              <Input id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div className="flex flex-col space-y-1.5">
+              <Input 
+                id="password" 
+                type="password" 
+                className="pr-0 mr-0 text-custom-white bg-stone-900 bg-opacity-25 border-none focus-visible:text-custom-white focus:border-custom-white focus:outline-none focus:ring-none" 
+                placeholder="Password" 
+                value={password}   
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+              />
             </div>
           </div>
         </form>
