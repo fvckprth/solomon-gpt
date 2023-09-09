@@ -19,7 +19,7 @@ const BackgroundVideo = () => {
                     onError={(e) => console.error('Mux Player error', e)}
                 />
              </Suspense>
-            <div className="absolute top-0 left-0 z-[-1] w-full h-screen bg-[#FF2264] bg-opacity-25"></div>
+            <div className="absolute top-0 left-0 z-[-1] w-full h-full bg-[#FF2264] bg-opacity-25"></div>
         </div>
     );
 }
