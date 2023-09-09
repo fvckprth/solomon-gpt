@@ -9,12 +9,14 @@ import Footer from '@/components/marketing/Footer'
 export default function Home() {
   return (
     <div>
-      <div className="flex flex-col justify-between h-screen p-4 overflow-hidden">
-        <Header />
-        <Hero />
-        <Value />
-        <Access />
-        <Footer />
+      <div className='absolute top-0 left-0 h-screen'>
+        <div className="flex flex-col justify-between relative h-full p-4 overflow-auto">
+          <Header />
+          <Hero />
+          <Value />
+          <Access />
+          <Footer />
+        </div>
       </div>
     </div>
   )
