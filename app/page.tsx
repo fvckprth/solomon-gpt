@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div>
       <div className='absolute top-0 left-0 h-full'>
-        <div className="flex flex-col justify-between relative h-full p-4 overflow-hidden">
+        <div className="flex flex-col justify-between relative min-h-screen p-4 overflow-hidden">
           <Header />
           <Hero />
           <Value />
