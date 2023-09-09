@@ -72,10 +72,10 @@ export function UserAuthForm() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="p-0 flex w-full h-12">
+      <CardFooter className="p-0 flex w-full h-12 border-b-custom-white">
         <Button 
-          variant="outline" 
-          className="w-full h-12 text-base text-custom-white bg-transparent border-x-0 border-t-1 border-b-0 border-custom-white border-opacity-25" 
+          variant="default" 
+          className="w-full h-12 text-base text-custom-white bg-transparent border-x-0 border-t border-custom-white border-opacity-25" 
           disabled={!isFormFilled}>
             Launch
         </Button>
