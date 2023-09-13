@@ -5,7 +5,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 import { useAtBottom } from '@/lib/hooks/use-at-bottom'
 import { Button, type ButtonProps } from '@/components/ui/button'
-import { IconPlus } from '@/components/ui/icons'
+import { IconRefresh } from '@/components/ui/icons'
 
 export function ButtonScrollToBottom({ className, ...props }: ButtonProps) {
   const isAtBottom = useAtBottom()
@@ -13,9 +13,8 @@ export function ButtonScrollToBottom({ className, ...props }: ButtonProps) {
   return (
     <Button
       variant="outline"
-      size="icon"
       className={cn(
-        'z-10 bg-black transition-opacity duration-300 sm:right-8 md:top-2',
+        "z-100 p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50 absolute right-0 z-10",
         isAtBottom ? 'opacity-0' : 'opacity-100',
         className
       )}
@@ -27,7 +26,7 @@ export function ButtonScrollToBottom({ className, ...props }: ButtonProps) {
       }
       {...props}
     >
-      <IconPlus />
+      <IconRefresh style={{ color: '#181818', opacity: 0.25 }} />
       <span className="sr-only">Scroll to bottom</span>
     </Button>
   )

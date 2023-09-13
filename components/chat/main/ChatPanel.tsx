@@ -32,32 +32,34 @@ export function ChatPanel({
 }: ChatPanelProps) {
   return (
     <div className="fixed inset-x-0 bottom-0 mx-4">
-      <ButtonScrollToBottom />
       <div className="mx-auto sm:max-w-2xl">
         <div className="flex items-center justify-start text-[#181818] text-opacity-25">
-          {isLoading ? (
-            <Button
-              variant="outline"
-              onClick={() => stop()}
-              className="p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
-            >
-              <IconStop className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
-              Stop generating
-            </Button>
-          ) : (
-            messages?.length > 0 && (
+          <div className="flex items-center justify-between w-full relative">
+            {isLoading ? (
               <Button
                 variant="outline"
-                onClick={() => reload()}
+                onClick={() => stop()}
                 className="p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
               >
-                <IconRefresh className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
-                Regenerate response
+                <IconStop className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
+                Stop generating
               </Button>
-            )
-          )}
+            ) : (
+              messages?.length > 0 && (
+                <Button
+                  variant="outline"
+                  onClick={() => reload()}
+                  className="p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
+                >
+                  <IconRefresh className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
+                  Regenerate response
+                </Button>
+              )
+            )}
+            <ButtonScrollToBottom />
+          </div>
         </div>
-        <div className="space-y-2 bg-gradient-to-t from-white to-transparent bg-opacity-25 py-4">
+        <div className="space-y-2 bg-gradient-to-t from-white to-transparent bg-opacity-25 py-4 relative">
           <PromptForm
             onSubmit={async value => {
               await append({
