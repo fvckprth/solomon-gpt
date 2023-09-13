@@ -20,7 +20,7 @@ const exampleMessages = [
   },
   {
     preview: 'VISION',
-    heading: 'Elaborate on East Park’s vision',
+    heading: 'Elaborate on East Parks vision',
     message: `What is East Park's long-term vision and mission? How does SolomonGPT align with that vision?`
   },
 ]

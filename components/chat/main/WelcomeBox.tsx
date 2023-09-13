@@ -12,12 +12,12 @@ const WelcomeBox = () => {
                 Hello, this is Solomon
             </h1>
             <p className="text-xs md:text-base text-[#1E1E1E] text-opacity-50 leading-tight">
-                I’m an AI-Powered assistant crafted with the{' '}
+                I&apos;m an AI-Powered assistant crafted with the{' '}
                 <Link href="https://vercel.com/docs/concepts/functions/introduction" className="text-[#FF2264] underline underline-offset-4 decoration-1">
                     Vercel AI SDK
-                </Link>, 
+                </Link>
                 , and fine-tuned <br />
-                and trained on East Park Holdings' diverse assets, progress, and initiatives.{' '}
+                and trained on East Park Holdings&apos; diverse assets, progress, and initiatives.{' '}
             </p>
         </div>
     );
