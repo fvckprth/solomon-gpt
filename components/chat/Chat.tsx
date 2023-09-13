@@ -32,7 +32,7 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
 
     return (
     <div>
-        <div className={cn('md:mx-auto mx-4 flex flex-col justify-between pt-4 md:pt-10', className)}>
+        <div className={cn('md:mx-auto mx-4 flex flex-col justify-between pb-[200px] pt-4 md:pt-10', className)}>
           {messages.length ? (
             <div>
               <ChatList messages={messages} />
