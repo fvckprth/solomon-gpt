@@ -50,7 +50,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-      <body className={`${allianceNo2.className} overflow-hidden h-full leading-none tracking-tight`}>
+      <body className={`${allianceNo2.className} h-full leading-none tracking-tight`}>
         {children}
         <BackgroundVideo />
       </body>

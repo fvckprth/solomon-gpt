@@ -13,7 +13,6 @@ const Footer = () => {
       fetch('/api/view', { method: 'POST' });
     }, []);
   if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
 
   return (
     <div className='flex flex-col md:flex-row md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-xs md:text-sm space-y-1 md:space-y-0 md:self-end'>
@@ -24,7 +23,7 @@ const Footer = () => {
         </div>
         <div>
           <span className="text-custom-white">
-            {typeof data.count === 'number' ? data.count : 'N/A'}
+            {data && typeof data.count === 'number' ? data.count : 'N/A'}
           </span>          
           <span className="text-custom-white text-opacity-50"> VIEWS</span>
         </div>
