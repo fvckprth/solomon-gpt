@@ -113,6 +113,22 @@ function IconRefresh({
     )
 }
 
+function IconDown({
+    className,
+    style,
+    ...props
+}: React.ComponentProps<'svg'>) {
+    return (
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24"
+            className={cn('h-4 w-4', className)}
+            style={style}>
+                <path d="M12.9999 16.1716L18.3638 10.8076L19.778 12.2218L11.9999 20L4.22168 12.2218L5.63589 10.8076L10.9999 16.1716V4H12.9999V16.1716Z"></path>
+        </svg>
+    )
+}
+
 function IconArrowElbow({
     className,
     ...props
@@ -178,6 +194,7 @@ export {
     IconStop,
     IconDownload,
     IconRefresh,
+    IconDown,
     IconArrowElbow,
     IconCheck,
     IconCopy,
