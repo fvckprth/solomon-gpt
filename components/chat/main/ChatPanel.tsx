@@ -33,15 +33,15 @@ export function ChatPanel({
   return (
     <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
       <div className="md:mx-auto mx-4 sm:max-w-2xl">
-        <div className="flex items-center justify-start text-[#181818] text-opacity-25">
+        <div className="flex items-center justify-start text-[#1E1E1E] text-opacity-25">
           <div className="flex items-center justify-between w-full relative">
             {isLoading ? (
               <Button
                 variant="outline"
                 onClick={() => stop()}
-                className="p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
+                className="flex items-center leading-relaxed p-2 rounded-none border border-[#1E1E1E] border-opacity-25 bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
               >
-                <IconStop className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
+                <IconStop className="mr-1" style={{ color: '#1E1E1E', opacity: 0.25 }} />
                 Stop generating
               </Button>
             ) : (
@@ -49,9 +49,9 @@ export function ChatPanel({
                 <Button
                   variant="outline"
                   onClick={() => reload()}
-                  className="p-2 rounded-none bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
+                  className="p-2 rounded-none border border-[#1E1E1E] border-opacity-25 bg-white bg-opacity-25 backdrop-blur-sm text-sm self-center hover:opacity-50"
                 >
-                  <IconRefresh className="mr-1" style={{ color: '#181818', opacity: 0.25 }} />
+                  <IconRefresh className="mr-1" style={{ color: '#1E1E1E', opacity: 0.25 }} />
                   Regenerate response
                 </Button>
               )

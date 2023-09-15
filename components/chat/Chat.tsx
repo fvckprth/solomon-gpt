@@ -8,7 +8,6 @@ import { ChatPanel } from '@/components/chat/main/ChatPanel'
 import Examples from '@/components/chat/main/Examples'
 import { ChatScrollAnchor } from '@/components/chat/main/ChatScrollAnchor'
 import WelcomeBox from './main/WelcomeBox'
-import { useLocalStorage } from '@/lib/hooks/use-local-storage'
 
 export interface ChatProps extends React.ComponentProps<'div'> {
   initialMessages?: Message[]

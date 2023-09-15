@@ -1,13 +1,21 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import React from 'react'
 import Link from "next/link"
+import Image from "next/image";
 
 const WelcomeBox = () => {
     return (
-        <div className="md:mx-auto md:max-w-2xl border border-[#1E1E1E] border-opacity-25 bg-transparent pb-4 px-4 md:pb-6 md:px-6">
-            <Avatar className="p-0 -ml-8 md:-ml-12 -mb-3 md:-mb-4 -mt-2 md:-mt-4 h-48 w-48 md:h-48 md:48">
-                <AvatarImage src="/images/solo.svg" />
-                <AvatarFallback>SL</AvatarFallback>
-            </Avatar>
+    <>
+        <div className="md:mx-auto md:max-w-2xl border border-[#1E1E1E] border-opacity-25 pb-4 px-4 md:pb-6 md:px-6">
+            <div className="w-120 h-120">
+                <Image
+                    src="/images/solomonGPT-logo.png"
+                    alt="Solomon GPT Logo"
+                    quality={100}
+                    priority={true}	
+                    height={120}
+                    width={120}
+                />
+            </div>
             <h1 className="mb-2 text-base md:text-2xl text-[#1E1E1E] text-opacity-50 1eading-tight">
                 Hello, this is Solomon
             </h1>
@@ -20,6 +28,7 @@ const WelcomeBox = () => {
                 and trained on East Park Holdings&apos; diverse assets, progress, and initiatives.{' '}
             </p>
         </div>
+    </>
     );
 }
 export default WelcomeBox;

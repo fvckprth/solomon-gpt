@@ -52,7 +52,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={`${allianceNo2.className} h-full leading-none tracking-tight`}>
         {children}
-        <BackgroundVideo />
       </body>
     </html>
   );

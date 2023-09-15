@@ -55,7 +55,7 @@ export function PromptForm({
               onChange={e => setInput(e.target.value)}
               placeholder="Ask Solomon."
               spellCheck={false}
-              className="py-3 h-12 min-h-[12px] rounded-none w-full flex-grow resize-none bg-[#DBDBDB] bg-opacity-50 backdrop-blur-sm text-sm md:text-base focus-within:outline-none placeholder:text-[#1E1E1E] placeholder:text-opacity-25 sm:text-sm mr-3"
+              className="py-3 h-12 min-h-[12px] rounded-none w-full flex-grow resize-none border-none bg-[#DBDBDB] bg-opacity-50 backdrop-blur-sm text-sm md:text-base focus-within:outline-none placeholder:text-[#1E1E1E] placeholder:text-opacity-25 mr-3"
             />
             <div className="rounded-none">
               <TooltipProvider>
