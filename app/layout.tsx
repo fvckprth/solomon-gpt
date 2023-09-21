@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '@/styles/globals.css'
 import type { ReactNode } from 'react';
-import BackgroundVideo from '@/components/BackgroundVideo';
 
 const allianceNo2 = localFont({ 
   src: '../public/fonts/AllianceNo.2-Regular.otf',
@@ -51,7 +50,6 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={`${allianceNo2.className} h-full leading-none tracking-tight`}>
-        <BackgroundVideo />
         {children}
       </body>
     </html>

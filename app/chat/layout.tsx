@@ -5,7 +5,6 @@ import type { ReactNode } from 'react';
 
 import AuthProvider from '@/components/auth/AuthProvider';
 
-
 type RootLayoutProps = {
   children: ReactNode;
 };
