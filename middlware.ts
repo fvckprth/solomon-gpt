@@ -7,9 +7,9 @@ export async function middleware(req: NextRequest) {
 
   const { data: { session } } = await supabase.auth.getSession()
 
-  // if user is signed in and the current path is / redirect the user to /test
+  // if user is signed in and the current path is / redirect the user to /chat
   if (session && req.nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/test', req.url))
+    return NextResponse.redirect(new URL('/chat', req.url))
   }
 
   // if user is not signed in and the current path is not / redirect the user to /
@@ -20,5 +20,5 @@ export async function middleware(req: NextRequest) {
   return res
 }
 export const config = {
-  matcher: ['/', '/test'],
+  matcher: ['/', '/chat'],
 }

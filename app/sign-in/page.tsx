@@ -1,24 +1,33 @@
+'use client'
+
 import UserAuthForm from '@/components/auth/UserAuthForm'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
-export const runtime = 'edge'
-export const preferredRegion = 'home'
 
-export default async function SignIn() {
-    const supabase = createServerComponentClient({ cookies });
-    const { data } = await supabase.auth.getSession();
+export default function SignIn() {
+    const router = useRouter();
+    const supabase = createClientComponentClient();
   
-    if (data?.session) {
-        redirect('/chat');
-      }
+    const isAuthenticated = async () => {
+      const { data } = await supabase.auth.getSession();
+      return data?.session ? true : false;
+    }
+  
+    useEffect(() => {
+      isAuthenticated().then(authenticated => {
+        if (authenticated) {
+          router.push('/chat');
+        }
+      });
+    }, []);
 
-    return (
-        <div>
-        <div className='absolute bg-white top-0 left-0 w-full h-screen flex items-center justify-center'>
-            <UserAuthForm />
-        </div>
-        </div>
-    )
+  return (
+    <div>
+      <div className='absolute bg-white top-0 left-0 w-full h-screen flex items-center justify-center'>
+        <UserAuthForm />
+      </div>
+    </div>
+  );
 }

@@ -17,8 +17,9 @@ export default async function ChatPage() {
     
   return (
     <div>
+      <Header user={user} />
       <div className='absolute bg-white top-0 left-0 w-full h-screen'>
-      <Chat />
+        <Chat />
       </div>
     </div>
   )

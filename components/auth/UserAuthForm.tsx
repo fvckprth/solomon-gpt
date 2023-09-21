@@ -12,10 +12,18 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { Session, User } from "@supabase/supabase-js";
 
 const UserAuthForm = () => {
   const supabase = createClientComponentClient();
 
+  type SessionType = {
+    user: User | null;
+    session: Session | null;
+  } | null;
+  
+  const [session, setSession] = React.useState<SessionType>(null);
+  
   const [formState, setFormState] = React.useState<{
     email: string
     password: string
@@ -32,10 +40,18 @@ const UserAuthForm = () => {
     setIsLoading(true);
     setError(null);
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data: sessionData, error } = await supabase.auth.signInWithPassword({
       email: formState.email,
       password: formState.password,
     });
+
+    if (sessionData) {
+      const session: SessionType = {
+        user: sessionData.user,
+        session: sessionData.session,
+      };
+      setSession(session); // Set the session state
+    }
 
     console.log(error);
   
