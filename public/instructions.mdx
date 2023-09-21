@@ -1,0 +1,46 @@
+# Solomon Reference Guide
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Purpose](#purpose)
+- [Technologies Used](#technologies-used)
+- [User Authentication](#user-authentication)
+- [Features](#features)
+- [Documentation and Links](#documentation-and-links)
+- [Updates and Changelog](#updates-and-changelog)
+
+## Introduction
+Solomon is a private ChatGPT platform designed to provide a centralized point of information for East Park Holdings Group. This document serves as a comprehensive guide detailing the technologies, methodologies, and features of Solomon.
+
+## Purpose
+Solomon aims to offer a private and secure platform where authorized users, such as investors and stakeholders, can ask questions and gain insights about East Park Holdings Group. By leveraging SolomonGPT to ensures accurate, context-aware responses to user queries.
+
+## Technologies Used
+- **Shadcn/ui**: A modern UI component library ensuring a consistent and responsive user interface across Solomon.
+- **Supabase Auth**: Provides secure user authentication, ensuring that only authorized individuals can access Solomon.
+- **Supabase Database**: A scalable and secure relational database that stores user data, conversation histories, and other essential information.
+- **Upstash Redis**: An in-memory data structure store, used for caching and real-time applications within Solomon.
+- **Vercel AI SDK**: Integrates AI capabilities, empowering Solomon to provide intelligent and context-aware responses.
+
+## User Authentication
+Solomon employs Supabase Auth for its user authentication. Initially, login credentials will be provided manually to selected users like investors and stakeholders. The current authentication method in use is email sign-in with a password.
+
+## Features
+- **Private Access**: Solomon is not publicly accessible. Only users with provided credentials can log in and interact with the platform.
+- **Intelligent Responses**: Leveraging the Vercel AI SDK, Solomon can answer a wide range of queries related to East Park Holdings Group.
+- **Secure Data Handling**: With Upstash Redis, Solomon ensures fast data retrieval while maintaining data integrity and security.
+- **Consistent UI**: Thanks to Shadcn/ui, users experience a consistent, intuitive, and modern interface when interacting with Solomon.
+
+## Documentation and Links
+- [Next.js App Router Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Shadcn/ui Documentation](https://ui.shadcn.com/docs/components/accordion)
+- [Supabase Auth Documentation](https://supabase.io/docs/guides/auth)
+- [Supabase Database Documentation](https://supabase.com/docs/guides/database/overview)
+- [Upstash Redis Documentation](https://docs.upstash.com/)
+- [Vercel AI SDK Documentation](https://sdk.vercel.ai/docs)
+
+## Updates and Changelog
+- **August 31, 2023**: Integrated Vercel AI SDK for enhanced chat functionalities.
+- **September 5, 2023**: Mobile front-end is nearly complete
+- **September 17, 2023**: Started implementing SigninwithPassword via Supabase Auth

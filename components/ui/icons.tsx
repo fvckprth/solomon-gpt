@@ -9,44 +9,26 @@ function IconSolomon({
     ...props 
     }: React.ComponentProps<'svg'>) {
     return (
-        <svg 
-        width="24" 
-        height="24" 
-        viewBox="0 0 207 207" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-        >
-            <title>SolomonGPT icon</title>
-            <g filter="url(#filter0_f_86_161)">
-                <circle 
-                    cx="84" 
-                    cy="84" 
-                    r="60" 
-                    fill="#FF2264"
-                />
-            </g>
-            <g filter="url(#filter1_b_86_161)">
-                <circle 
-                    cx="84" 
-                    cy="84" 
-                    r="45" 
-                    fill="#1E1E1E"/>
-            </g>
-
-            <defs>
-                <filter id="filter0_f_86_161" x="-38.5" y="-38.5" width="245" height="245" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
-                    <feGaussianBlur stdDeviation="31.25" result="effect1_foregroundBlur_86_161"/>
-                </filter>
-                <filter id="filter1_b_86_161" x="19" y="19" width="130" height="130" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                    <feGaussianBlur in="BackgroundImageFix" stdDeviation="10"/>
-                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_86_161"/>
-                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_86_161" result="shape"/>
-                </filter>
-            </defs>
+        <svg width="820" height="820" viewBox="0 0 820 820" fill="none" className={cn('h-32 w-32', className)} xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_f_460_2)">
+        <circle cx="410" cy="410" r="200" fill="#FF2264"/>
+        </g>
+        <g filter="url(#filter1_b_460_2)">
+        <circle cx="410" cy="410" r="150" fill="#1E1E1E"/>
+        </g>
+        <defs>
+        <filter id="filter0_f_460_2" x="0.625" y="0.625" width="818.75" height="818.75" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+        <feGaussianBlur stdDeviation="104.688" result="effect1_foregroundBlur_460_2"/>
+        </filter>
+        <filter id="filter1_b_460_2" x="193" y="193" width="434" height="434" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feGaussianBlur in="BackgroundImageFix" stdDeviation="33.5"/>
+        <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_460_2"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_460_2" result="shape"/>
+        </filter>
+        </defs>
         </svg>
     )
   }

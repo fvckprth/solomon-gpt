@@ -27,8 +27,8 @@ const exampleMessages = [
 
 const Examples: React.FC<Pick<UseChatHelpers, 'setInput'>> = ({ setInput }) => {
   return (
-    <div className="md:mx-auto md:max-w-2xl">
-        <div className="mt-4 grid grid-cols-2 gap-2 md:gap-4 items-center justify-center h-full">
+    <div className="w-full md:mx-auto md:max-w-2xl">
+        <div className="mt-4 grid grid-cols-2 gap-2 md:gap-4 items-center justify-center">
           {exampleMessages.map((message, index) => (
             <Button
               key={index}

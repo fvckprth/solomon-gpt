@@ -5,7 +5,7 @@ import Image from "next/image";
 const WelcomeBox = () => {
     return (
     <>
-        <div className="md:mx-auto md:max-w-2xl border border-[#1E1E1E] border-opacity-25 pb-4 px-4 md:pb-6 md:px-6">
+        <div className="w-full md:mx-auto md:max-w-2xl border border-[#1E1E1E] border-opacity-25 pb-4 px-4 md:pb-6 md:px-6">
             <div className="w-120 h-120">
                 <Image
                     src="/images/solomonGPT-logo.png"

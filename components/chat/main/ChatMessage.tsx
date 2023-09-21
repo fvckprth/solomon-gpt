@@ -23,13 +23,15 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
       >
         <div
           className={cn(
-            'flex h-12 w-12 items-center justify-center',
+            'relative flex h-12 w-12 items-center justify-center',
             message.role === 'user'
               ? 'bg-white'
               : 'bg-white'
           )}
         >
-          {message.role === 'user' ? <IconUser /> : <IconSolomon />}
+            <div className="w-full h-full flex items-center justify-center">
+                {message.role === 'user' ? <IconUser /> : <IconSolomon />}
+            </div>
         </div>
         <div className="flex flex-row items-start justify-between w-full space-x-4 overflow-hidden">
           <MemoizedReactMarkdown

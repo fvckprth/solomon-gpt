@@ -5,7 +5,7 @@ type Props = {};
 const SolomonLogo = (props: Props) => {
     return (
         <div
-            className="relative p-1 rounded-none h-9 w-9 text-white flex items-center justify-center"
+            className="relative p-4 rounded-none h-12 w-12 text-white flex items-center justify-center"
         >
             <svg 
                 width="207" 

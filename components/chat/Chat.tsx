@@ -1,7 +1,7 @@
 'use client'
 
 import { useChat, Message } from 'ai/react'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { ChatList } from '@/components/chat/main/ChatList'
 import { ChatPanel } from '@/components/chat/main/ChatPanel'
@@ -29,7 +29,6 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
         }
       })
 
-    // Disable scrolling when WelcomeBox and Examples are displayed
     useEffect(() => {
         if (messages.length === 0) {
           document.body.style.overflow = 'hidden';
@@ -41,14 +40,14 @@ export function Chat({ id, initialMessages, className }: ChatProps) {
 
     return (
     <div>
-        <div className={cn('md:mx-auto mx-4 flex flex-col justify-between pb-[200px] pt-4 md:pt-10', className)}>
+        <div className={cn('md:mx-auto mx-4 pb-[200px] pt-4 md:pt-10', className)}>
           {messages.length ? (
             <div>
               <ChatList messages={messages} />
               <ChatScrollAnchor trackVisibility={isLoading} />
             </div>
           ) : (
-            <div className='h-screen overflow-auto'>
+            <div className='h-screen flex grow flex-col justify-around w-full pb-[80px]'>
               <WelcomeBox />
               <Examples setInput={setInput} />
             </div>
