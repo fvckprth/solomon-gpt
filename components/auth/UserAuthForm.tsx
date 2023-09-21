@@ -36,6 +36,7 @@ const UserAuthForm = () => {
       email: formState.email,
       password: formState.password,
     });
+
     console.log(error);
   
     setIsLoading(false);

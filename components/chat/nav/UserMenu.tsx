@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react';
 import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { User } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 import { Button } from '@/components/ui/button'
 import {
@@ -13,10 +14,14 @@ import {
 import { supabase } from '@/lib/supabaseClient';
 import { Profiles } from '@/types/collection';
 
-export default function UserMenu() {
+type UserMenuProps = {
+  user: User | null;
+};
+
+export default function UserMenu({ user }: UserMenuProps) {
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<Profiles | null>(null);
-  const router = useRouter()
+  const router = useRouter();
 
   const fetcher = useCallback(async () => {
     const { data, error } = await supabase
@@ -44,30 +49,26 @@ export default function UserMenu() {
     <div className="fixed top-0 right-0 p-4">
       <DropdownMenu>
         <DropdownMenuTrigger>
-        <Button variant="ghost" className="pl-0">
-            {profile.av ? (
-              <Image
-                height={60}
-                width={60}
-                className="h-6 w-6 select-none rounded-none ring-1 ring-zinc-100/10 transition-opacity duration-300 hover:opacity-80"
-                src={
-                  user.user_metadata.avatar_url
-                    ? `${user.user_metadata.avatar_url}&s=60`
-                    : ''
-                }
-                alt={user.user_metadata.name ?? 'Avatar'}
-              />
-            ) : (
-              <div className="flex h-7 w-7 shrink-0 select-none items-center justify-center rounded-full bg-muted/50 text-xs font-medium uppercase text-muted-foreground">
-                {`${profile?.first_name[0]}${profile?.last_name[0]}`}
-              </div>
-            )}
-          </Button>
-        </DropdownMenuTrigger>
+            <Button variant="ghost" className="pl-0">
+              {profile?.avatar_url ? (
+                <Image
+                  height={60}
+                  width={60}
+                  // ...existing code
+                  src={profile?.avatar_url}
+                  alt={`${profile?.first_name} ${profile?.last_name}`}
+                />
+              ) : (
+                <div className="flex h-7 w-7 shrink-0 select-none items-center justify-center rounded-full bg-muted/50 text-xs font-medium uppercase text-muted-foreground">
+                  {`${profile?.first_name?.[0]}${profile?.last_name?.[0]}`}
+                </div>
+              )}
+            </Button>
+          </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <div>{user?.user_metadata.name}</div>
-            <div>{user?.email}</div>
+            <div>{profile?.first_name} {profile?.last_name}</div>
+            <div>{profile?.email}</div>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <a href="https://eastpark.xyz" target="_blank" rel="noopener noreferrer">East Park Home Page</a>
