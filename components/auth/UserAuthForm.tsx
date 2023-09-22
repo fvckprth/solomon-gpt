@@ -13,9 +13,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Session, User } from "@supabase/supabase-js";
+import { useRouter } from 'next/navigation';
 
 const UserAuthForm = () => {
   const supabase = createClientComponentClient<Database>();
+  const router = useRouter();
 
   type SessionType = {
     user: User | null;
@@ -51,9 +53,10 @@ const UserAuthForm = () => {
         session: sessionData.session,
       };
       setSession(session); 
+      router.push('/chat'); // Redirect to chat page after successful sign-in
+    } else if (error) {
+      setError('An error occurred while signing in');
     }
-
-    setError('An error occurred while signing in');
     
     setIsLoading(false);
 
