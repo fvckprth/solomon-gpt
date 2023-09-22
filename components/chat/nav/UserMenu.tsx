@@ -79,11 +79,9 @@ export default function UserMenu() {
           <DropdownMenuItem>
             <a href="mailto:info@eastpark.xyz">Get Help</a>
           </DropdownMenuItem>
-          <form action="/auth/signout" method="post">
             <button className="button block" type="submit" onClick={handleSignOut}>
               Sign out
             </button>
-          </form>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

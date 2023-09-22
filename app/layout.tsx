@@ -3,6 +3,8 @@ import localFont from 'next/font/local'
 import '@/styles/globals.css'
 import type { ReactNode } from 'react';
 
+export const dynamic = 'force-dynamic'
+
 const allianceNo2 = localFont({ 
   src: '../public/fonts/AllianceNo.2-Regular.otf',
   weight: '400',
