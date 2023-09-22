@@ -17,6 +17,7 @@ import { useRouter } from 'next/navigation';
 
 const UserAuthForm = () => {
   const supabase = createClientComponentClient<Database>();
+  
   const router = useRouter();
 
   type SessionType = {
