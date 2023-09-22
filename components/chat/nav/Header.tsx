@@ -2,7 +2,6 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { createPagesBrowserClient } from '@supabase/auth-helpers-nextjs'
 import { User } from '@supabase/supabase-js';
 import { cn } from '@/lib/utils'
 import { Button, buttonVariants } from '@/components/ui/button'
@@ -19,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
       <div className="flex items-center">
         <div className="flex items-center">
           {user ? (
-            <UserMenu user={user} />
+            <UserMenu />
           ) : (
             <Button variant="link" asChild className="-ml-2">
               <Link href="/sign-in">Login</Link>

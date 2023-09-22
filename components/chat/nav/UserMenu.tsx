@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useCallback, useEffect, useState } from 'react';
-import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { User } from '@supabase/auth-helpers-nextjs';
+import { useEffect, useState } from 'react';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,44 +9,32 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
-import { supabase } from '@/lib/supabaseClient';
-import { Profiles } from '@/types/collection';
 
-type UserMenuProps = {
-  user: User | null;
-};
-
-export default function UserMenu({ user }: UserMenuProps) {
-  const [session, setSession] = useState<{ user: User | null; session?: Session | null; } | null>(null);
+export default function UserMenu() {
+  const supabase = createClientComponentClient<Database>();
   const [profile, setProfile] = useState<Profiles | null>(null);
   const router = useRouter();
 
   useEffect(() => {
-    const session = {
-      user: user,
-    };
-    setSession(session); 
-  }, [user]);
+    const fetchProfile = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        const { data, error } = await supabase
+          .from('profiles')
+          .select('*')
+          .eq('id', session.user.id)
+          .single();
 
-
-  const fetcher = useCallback(async () => {
-    if (session?.user) {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', session.user.id)
-        .single()
       if (error) {
         console.error('Error fetching profile:', error);
       } else {
         setProfile(data);
       }
     }
-  },[session]);
+  };
 
-  useEffect(() => {
-    fetcher();
-  }, [fetcher]);
+    fetchProfile();
+  }, []);
 
   const handleSignOut = async () => {
     const { error } = await supabase.auth.signOut();
@@ -55,10 +42,10 @@ export default function UserMenu({ user }: UserMenuProps) {
       console.error('ERROR:', error);
       alert('Error during sign out: ' + error.message);
     } else {
-      setSession(null);
       router.push('/sign-in');
     }
-  }
+  };
+
   return (
     <div className="fixed top-0 right-0 p-4">
       <DropdownMenu>
@@ -92,12 +79,13 @@ export default function UserMenu({ user }: UserMenuProps) {
           <DropdownMenuItem>
             <a href="mailto:info@eastpark.xyz">Get Help</a>
           </DropdownMenuItem>
-          <DropdownMenuItem onClick={handleSignOut}>
-            Sign out
-          </DropdownMenuItem>
+          <form action="/auth/signout" method="post">
+            <button className="button block" type="submit" onClick={handleSignOut}>
+              Sign out
+            </button>
+          </form>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
   );
 }
-
