@@ -15,7 +15,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Session, User } from "@supabase/supabase-js";
 
 const UserAuthForm = () => {
-  const supabase = createClientComponentClient();
+  const supabase = createClientComponentClient<Database>();
 
   type SessionType = {
     user: User | null;
@@ -50,11 +50,11 @@ const UserAuthForm = () => {
         user: sessionData.user,
         session: sessionData.session,
       };
-      setSession(session); // Set the session state
+      setSession(session); 
     }
 
-    console.log(error);
-  
+    setError('An error occurred while signing in');
+    
     setIsLoading(false);
 
     if (error) {
