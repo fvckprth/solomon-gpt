@@ -13,7 +13,7 @@ export default async function SignIn() {
 
     return (
         <div>
-        <div className='absolute bg-white top-0 left-0 w-full h-screen flex items-center justify-center'>
+        <div className='absolute top-0 left-0 w-full h-screen flex items-center justify-center'>
             <UserAuthForm />
         </div>
         </div>
