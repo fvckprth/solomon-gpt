@@ -5,7 +5,6 @@ import Hero from '@/components/marketing/Hero'
 import Value from '@/components/marketing/Value'
 import Access from '@/components/marketing/Access'
 import Footer from '@/components/marketing/Footer'
-import BackgroundVideo from '@/components/BackgroundVideo'
 
 import { useEffect } from 'react';
 
@@ -19,7 +18,6 @@ export default function Home() {
   }, []);
   return (
     <div>
-      <BackgroundVideo />
       <div className='absolute top-0 left-0 h-full'>
         <div className="flex flex-col md:grid md:grid-cols-6 grid-rows-6 md:p-0 relative h-full p-4 overflow-hidden">
             <div className='pb-12 md:p-0 md:col-start-1 md:col-span-2 md:row-span-4'>
