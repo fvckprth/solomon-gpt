@@ -38,7 +38,7 @@ const Value = () => {
     const activeBoxClasses = 'bg-custom-white';
     
     return (
-        <div className='mb-4 md:col-start-1 md:col-span-2 md:row-span-3 p-4 md:p-0 md:pb-20 md:px-8 md:m-0 md:pt-8 flex flex-col justify-end items-start bg-stone-900 bg-opacity-25 border border-custom-white border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md'>
+        <div className='p-4 md:p-8 flex flex-col justify-start bg-stone-900 bg-opacity-25 border border-custom-white border-opacity-25 md:border-y-0 md:border-l-0 backdrop-blur-sm md:backdrop-blur-md'>
             <div className='flex flex-row items-center text-custom-white'>
                 {contentData.map(item => (
                     <div

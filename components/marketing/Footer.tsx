@@ -15,7 +15,7 @@ const Footer = () => {
   if (error) return <div>Failed to load</div>
 
   return (
-    <div className='flex flex-col md:flex-row md:col-start-3 md:col-span-4 md:row-start-6 md:mb-20 md:ml-20 justify-start text-xs md:text-sm space-y-1 md:space-y-0 md:self-end'>
+    <div className='flex flex-col justify-start text-xs md:text-sm'>
       <div className="flex space-x-6">
         <div>
           <span className="text-custom-white">12</span>
