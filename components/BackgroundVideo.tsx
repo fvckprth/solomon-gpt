@@ -22,7 +22,7 @@ const BackgroundVideo = () => {
                     loop
                     muted
                 />
-                <div className="absolute top-0 left-0 z-[-1] w-full h-full bg-[#FF2264] bg-opacity-25"></div>
+                <div className="absolute top-0 left-0 z-[-1] w-full h-full bg-[#FF2264]/25"></div>
         </div>
     );
 }
