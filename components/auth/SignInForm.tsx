@@ -65,7 +65,7 @@ export function SignInForm({
 
         const emails = profiles.map(profile => profile.email);
         if (emails.includes(email)) {
-          setError('Incorrect Password');
+          setError('Wrong Password');
         } else {
           setError('No Account Found');
         }

@@ -1,7 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useCallback, useEffect, useState } from 'react';
+import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,33 +12,61 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 
-export default function UserMenu() {
+export default function UserMenu({ session }: { session: Session | null }) {
   const supabase = createClientComponentClient<Database>();
-  const [profile, setProfile] = useState<Profiles | null>(null);
+  const [loading, setLoading] = useState(true)
+  const [first_name, setFirstName] = useState<string | null>(null)
+  const [last_name, setLastName] = useState<string | null>(null)
+  const [email, setEmail] = useState<string | null>(null)
+  const [avatar_url, setAvatarUrl] = useState<string | null>(null)
+  const user = session?.user
   const router = useRouter();
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        const { data, error } = await supabase
-          .from('profiles')
-          .select('*')
-          .eq('id', session.user.id)
-          .single();
-
-      if (error) {
-        console.error('Error fetching profile:', error);
-      } else {
-        setProfile(data);
+  const getProfile = useCallback(async () => {
+    try {
+      setLoading(true)
+  
+      if (!user?.id) {
+        console.log('User ID is not available'); // Log when user ID is not available
+        return;
       }
+  
+      console.log('User ID:', user.id); // Log the user ID
+  
+      let { data: profiles, error, status } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', user.id)
+        .single()
+  
+      console.log('Profiles:', profiles); // Log the profiles data
+  
+      if (error && status !== 406) {
+        console.error('Error:', error); // Log the error
+        throw error
+      }
+  
+      if (profiles) {
+        setFirstName(profiles.first_name)
+        setLastName(profiles.last_name)
+        setEmail(profiles.email)
+        setAvatarUrl(profiles.avatar_url)
+      } else {
+        console.log('No profiles found for user ID:', user.id); // Log when no profiles are found
+      }
+    } catch (error) {
+      console.error('Catch Error:', error); // Log the error caught
+      alert('Error loading user data!')
+    } finally {
+      setLoading(false)
     }
-  };
+  }, [user, supabase])
 
-    fetchProfile();
-  }, []);
+  useEffect(() => {
+    getProfile()
+  }, [user, getProfile])
 
-  const handleSignOut = async () => {
+  async function handleSignOut() {
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.error('ERROR:', error);
@@ -44,31 +74,31 @@ export default function UserMenu() {
     } else {
       router.push('/sign-in');
     }
-  };
+  }
 
   return (
     <div className="fixed top-0 right-0 p-4">
       <DropdownMenu>
         <DropdownMenuTrigger>
             <Button variant="ghost" className="pl-0">
-              {profile?.avatar_url ? (
+              {avatar_url ? (
                 <Image
                   height={60}
                   width={60}
-                  src={profile?.avatar_url}
-                  alt={`${profile?.first_name} ${profile?.last_name}`}
+                  src={avatar_url}
+                  alt={`${first_name} ${last_name}`}
                 />
               ) : (
                 <div className="flex h-7 w-7 shrink-0 select-none items-center justify-center rounded-full bg-muted/50 text-xs font-medium uppercase text-muted-foreground">
-                  {`${profile?.first_name?.[0]}${profile?.last_name?.[0]}`}
+                  {`${first_name?.[0]}${last_name?.[0]}`}
                 </div>
               )}
             </Button>
           </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem>
-            <div>{profile?.first_name} {profile?.last_name}</div>
-            <div>{profile?.email}</div>
+            <div>{first_name} {last_name}</div>
+            <div>{email}</div>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <a href="https://eastpark.xyz" target="_blank" rel="noopener noreferrer">East Park Home Page</a>
