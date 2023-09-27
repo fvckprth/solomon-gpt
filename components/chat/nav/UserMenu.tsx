@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react';
 import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-import { Button } from '@/components/ui/button'
 import {
+  DropdownMenuLabel,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -62,44 +62,39 @@ export default function UserMenu({ session }: { session: Session | null }) {
     }
   }, [user, supabase])
 
+  const signOut = async () => {
+    await supabase.auth.signOut()
+    router.refresh()
+  }
+
   useEffect(() => {
     getProfile()
   }, [user, getProfile])
 
-  async function handleSignOut() {
-    const { error } = await supabase.auth.signOut();
-    if (error) {
-      console.error('ERROR:', error);
-      alert('Error during sign out: ' + error.message);
-    } else {
-      router.push('/sign-in');
-    }
-  }
-
   return (
-    <div className="fixed top-0 right-0 p-4">
+    <div>
       <DropdownMenu>
         <DropdownMenuTrigger>
-            <Button variant="ghost" className="pl-0">
-              {avatar_url ? (
-                <Image
-                  height={60}
-                  width={60}
-                  src={avatar_url}
-                  alt={`${first_name} ${last_name}`}
-                />
-              ) : (
-                <div className="flex h-7 w-7 shrink-0 select-none items-center justify-center rounded-full bg-muted/50 text-xs font-medium uppercase text-muted-foreground">
-                  {`${first_name?.[0]}${last_name?.[0]}`}
-                </div>
-              )}
-            </Button>
-          </DropdownMenuTrigger>
+          <div className="py-2 px-3 flex items-center bg-[#FF2264]/25 border border-[#FF2264] backdrop-blur-sm md:backdrop-blur-md">
+            {avatar_url && (
+              <Image
+                height={40}
+                width={40}
+                src={avatar_url}
+                alt={`${first_name} ${last_name}`}
+                className="pr-2"
+              />
+            )}
+            <span className='text-base text-[#FF2264]'>{`${first_name} ${last_name}`}</span>
+          </div>
+        </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>
-            <div>{first_name} {last_name}</div>
-            <div>{email}</div>
-          </DropdownMenuItem>
+          <DropdownMenuLabel className='bg-transparent'>
+            <div className='flex flex-col'>
+              <div>{first_name} {last_name}</div>
+              <div>{email}</div>
+            </div>
+          </DropdownMenuLabel>
           <DropdownMenuItem>
             <a href="https://eastpark.xyz" target="_blank" rel="noopener noreferrer">East Park Home Page</a>
           </DropdownMenuItem>
@@ -109,9 +104,9 @@ export default function UserMenu({ session }: { session: Session | null }) {
           <DropdownMenuItem>
             <a href="mailto:info@eastpark.xyz">Get Help</a>
           </DropdownMenuItem>
-            <button className="button block" type="submit" onClick={handleSignOut}>
-              Sign out
-            </button>
+          <DropdownMenuItem onClick={signOut}>
+            Sign out
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>

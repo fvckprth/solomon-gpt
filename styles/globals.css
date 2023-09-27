@@ -104,6 +104,10 @@ input:-webkit-autofill:focus {
   display: none;
 }
 
+:focus {
+  outline: none;
+}
+
 .no-scroll {
   @apply h-screen overflow-hidden;
 }
