@@ -7,7 +7,7 @@ export async function Header() {
   const cookieStore = cookies()
   const session = await auth({ cookieStore })
   return (
-    <div className="items-center justify-between">
+    <div className="fixed z-50 p-4 items-center justify-between">
       <div className="flex items-center">
         <UserMenu session={session} />      
       </div>

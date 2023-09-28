@@ -17,7 +17,7 @@ export default async function ChatPage() {
   return (
     <div>
       <div className='absolute bg-white top-0 left-0 w-full h-screen'>
-        <div className='mx-auto'>
+        <div>
           <Header />
         </div>
         <Chat />
