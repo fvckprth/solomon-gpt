@@ -1,4 +1,4 @@
-import { type UseChatHelpers } from 'ai/react'
+import { type UseChatHelpers, Message, CreateMessage } from 'ai/react'
 
 import { Button } from '@/components/ui/button'
 import { PromptForm } from '@/components/chat/main/PromptForm'
@@ -17,7 +17,8 @@ export interface ChatPanelProps
     | 'input'
     | 'setInput'
   > {
-  id?: string
+  id?: string,
+  addToChatHistory: (message: Message | CreateMessage) => void
 }
 
 export function ChatPanel({
@@ -28,8 +29,10 @@ export function ChatPanel({
   reload,
   input,
   setInput,
-  messages
+  messages,
+  addToChatHistory
 }: ChatPanelProps) {
+
   return (
     <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-muted/10 from-10% to-muted/30 to-50%">
       <div className="md:mx-auto mx-4 sm:max-w-2xl">
@@ -62,6 +65,12 @@ export function ChatPanel({
         <div className="space-y-2 bg-gradient-to-t from-white to-transparent bg-opacity-25 py-4 relative">
           <PromptForm
             onSubmit={async value => {
+              // Add Promt to Supabase
+              await addToChatHistory({
+                id,
+                content: value,
+                role: 'user'
+              });
               await append({
                 id,
                 content: value,
