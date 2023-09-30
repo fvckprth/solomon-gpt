@@ -1,5 +1,3 @@
-'use cli'
-
 import { Message } from 'ai';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';

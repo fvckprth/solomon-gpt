@@ -24,8 +24,7 @@ const WelcomeBox = () => {
                 <Link href="https://vercel.com/docs/concepts/functions/introduction" className="text-[#FF2264] underline underline-offset-4 decoration-1">
                     Vercel AI SDK
                 </Link>
-                , and fine-tuned <br />
-                and trained on East Park Holdings&apos; diverse assets, progress, and initiatives.{' '}
+                , and fine-tuned and trained on East Park Holdings&apos; diverse assets, progress, and initiatives.{' '}
             </p>
         </div>
     </>

@@ -2,17 +2,22 @@ import { Message } from 'ai'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { CodeBlock } from '@/components/ui/codeblock'
 import { MemoizedReactMarkdown } from '@/components/chat/main/Markdown'
-import { IconSolomon, IconUser } from '@/components/ui/icons'
+import SolomonGPTLogo from '@/public/images/solomonGPT-logo.png'
 import { ChatMessageActions } from '@/components/chat/main/ChatMessageActions'
+import { useUser } from '@/app/context/UserContext'
 
 export interface ChatMessageProps {
   message: Message
 }
 
 export function ChatMessage({ message, ...props }: ChatMessageProps) {
+    const userContext = useUser();
+    const userProfile = userContext?.userProfile;
+    
     return (
       <div
         className={cn(
@@ -25,12 +30,25 @@ export function ChatMessage({ message, ...props }: ChatMessageProps) {
           className={cn(
             'relative flex h-12 w-12 items-center justify-center',
             message.role === 'user'
-              ? 'bg-white'
-              : 'bg-white'
+              ? 'bg-transparent'
+              : 'bg-transparent'
           )}
         >
             <div className="w-full h-full flex items-center justify-center">
-                {message.role === 'user' ? <IconUser /> : <IconSolomon />}
+            {message.role === 'user' && userProfile ? 
+              <Image
+                src={userProfile.avatar_url || ''}
+                alt={`${userProfile.first_name} ${userProfile.last_name}`}
+                height={40}
+                width={40}
+              /> : 
+              <Image
+                src={SolomonGPTLogo}
+                alt='Solomon GPT Logo'
+                height={40}
+                width={40}
+              />
+            }      
             </div>
         </div>
         <div className="flex flex-row items-start justify-between w-full space-x-4 overflow-hidden">

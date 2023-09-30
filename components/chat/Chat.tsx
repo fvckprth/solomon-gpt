@@ -3,7 +3,6 @@
 import { useChat, Message } from 'ai/react'
 import { useEffect } from 'react'
 import { cn } from '@/lib/utils'
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ChatList } from '@/components/chat/main/ChatList'
 import { ChatPanel } from '@/components/chat/main/ChatPanel'
 import Examples from '@/components/chat/main/Examples'

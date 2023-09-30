@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import '@/styles/globals.css'
 import type { ReactNode } from 'react';
 import BackgroundVideo from '@/components/BackgroundVideo';
+import { UserProvider } from './context/UserContext';
 
 
 export const dynamic = 'force-dynamic'
@@ -56,7 +57,9 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html lang="en">
       <body className={`${allianceNo2.className} h-full leading-none tracking-tight`}>
         <BackgroundVideo />
-        {children}
+        <UserProvider>
+          {children}
+        </UserProvider>
       </body>
     </html>
   );
