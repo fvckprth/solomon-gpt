@@ -24,7 +24,7 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const supabase = createClientComponentClient(); 
 
   const getCurrentSession = async () => {
-    const res = await supabase.auth.getSession();
+    const res = await supabase.auth.refreshSession();
     if (res && res.data.session) {
       return res.data.session;
     }

@@ -6,9 +6,11 @@ export async function GET(req: NextRequest) {
   const supabase = createRouteHandlerClient<Database>({ cookies })
   const { searchParams } = new URL(req.url)
   const code = searchParams.get('code')
+  
 
   if (code) {
-    await supabase.auth.exchangeCodeForSession(code)
+    const result = await supabase.auth.exchangeCodeForSession(code)
+    console.log('Exchange Code For Session Result:', result) // Log the result
   }
 
   return NextResponse.redirect(new URL('/chat', req.url))
