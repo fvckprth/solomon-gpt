@@ -5,11 +5,11 @@ import { auth } from '@/cookieStore'
 
 export async function Header() {
   const cookieStore = cookies()
-  const session = await auth({ cookieStore })
+  await auth({ cookieStore })
   return (
     <div className="fixed z-50 p-4 items-center justify-between">
       <div className="flex items-center">
-        <UserMenu session={session} />      
+        <UserMenu />      
       </div>
     </div>
   )
