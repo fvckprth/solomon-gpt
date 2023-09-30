@@ -21,10 +21,10 @@ export const useUser = () => {
 export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
-  const supabase = createClientComponentClient(); 
+  const supabase = createClientComponentClient()
 
   const getCurrentSession = async () => {
-    const res = await supabase.auth.refreshSession();
+    const res = await supabase.auth.getSession();
     if (res && res.data.session) {
       return res.data.session;
     }
