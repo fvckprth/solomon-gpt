@@ -21,7 +21,7 @@ export default function UserMenu() {
     });
   
     if (response.ok) {
-      router.push('/sign-in');
+      router.push('/');
     } else {
       console.error('Failed to sign out');
     }
