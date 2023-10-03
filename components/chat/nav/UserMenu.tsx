@@ -13,8 +13,18 @@ export default function UserMenu() {
   const router = useRouter();
 
   const signOut = async () => {
-    await supabase.auth.signOut()
-    router.refresh()
+    const response = await fetch('/auth/signout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+  
+    if (response.ok) {
+      router.push('/sign-in');
+    } else {
+      console.error('Failed to sign out');
+    }
   }
 
   return (
