@@ -1,7 +1,7 @@
 "use client"
 
-import React, { createContext, useContext, useCallback, useEffect, useState } from 'react';
-import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { useEffect, useState, createContext, useContext } from 'react';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 interface UserProfile {
   avatar_url: string | null;
@@ -23,50 +23,38 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true);
   const supabase = createClientComponentClient()
 
-  const getCurrentSession = async () => {
-    const res = await supabase.auth.getSession();
-    if (res && res.data.session) {
-      return res.data.session;
-    }
-    setUserProfile(null);
-    return null;
-  };
+  const fetchUserProfile = async (userId: string) => {
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', userId)
+      .single();
 
-  const getCurrentProfile = useCallback(async () => {
-    try {
-      setLoading(true);
-      const session = await getCurrentSession();
-      const user = session?.user;
-
-      if (!user?.id) {
-        console.log('User ID is not available');
-        return;
-      }
-
-      const { data, error, status } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', user.id)
-        .single();
-
-      if (error && status !== 406) {
-        throw error;
-      }
-
-      if (data) {
-        setUserProfile(data);
-      }
-    } catch (error) {
+    if (error) {
       console.error('Error:', error);
       alert('Error loading user data!');
-    } finally {
-      setLoading(false);
     }
-  }, [supabase]);
 
+    if (data) {
+      setUserProfile(data);
+    }
+  };
+  
   useEffect(() => {
-    getCurrentProfile();
-  }, [getCurrentProfile]);
+    const { data } = supabase.auth.onAuthStateChange(
+      async (event, session) => {
+        if (event === 'SIGNED_IN' && session?.user) {
+          fetchUserProfile(session.user.id);
+        } else {
+          setUserProfile(null);
+        }
+      }
+    );
+  
+    return () => {
+      data?.subscription.unsubscribe();
+    };
+  }, [supabase]);
 
   return (
     <UserContext.Provider value={{ userProfile, loading }}>
