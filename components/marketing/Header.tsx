@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SolomonLogo from '@/public/images/solomon-logo.png'
+import ArrowIcon from '@/public/images/icon.svg'
 
 const Header = () => {
     return (
@@ -10,15 +11,15 @@ const Header = () => {
                     </div>
                     <div className='flex flex-row items-end space-x-1'>
                         <div className="opacity-50">
-                            <Image 
-                                src="/images/icon.svg" 
-                                alt="arrow icon" 
-                                className="fill-inherit" 
-                                quality={100} 
-                                width={12}
-                                height={12} 
-                                sizes="(max-width: 640px) 32px, 32px"
-                            />
+                        <Image 
+                            src={ArrowIcon} 
+                            alt="arrow icon" 
+                            className="fill-inherit" 
+                            quality={100} 
+                            width={12}
+                            height={12} 
+                            sizes="(max-width: 640px) 32px, 32px"
+                        />
                         </div>
                         <div className="text-custom-white text-opacity-50 text-[8px] md:text-xs leading-tight tracking-tight">
                             A GPT DESIGNED FOR <br/>
